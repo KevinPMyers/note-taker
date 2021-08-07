@@ -4,10 +4,10 @@ const express = require('express');
 const PORT = process.env.port || 3001;
 const app = express();
 
-// const { db } = require('./db/db.json');
+const db = require('./db/db.json');
 
 
-app.use(express.static(__dirname));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use('/api')
@@ -18,24 +18,33 @@ app.use(express.json());
 
 
 app.get("/api/notes", (req, res) => {
-    res.JSON(notes);
+    res.json(db);
 });
-
+// lower case when getting string, uppercase JSON when returning data
 app.post("/api/notes", (req, res) => {
     const newNote = req.body;
-    notes.push(newNote);
+    newNote.id = Math.floor(Math.random() * 100000000)
+    db.push(newNote);
     sendData();
-    return console.log("New note added!")
+    res.json("done")
 });
 
 app.get("/api/notes/:id", (req, res) => {
-    res.JSON(notes[req.params.id]);
+    res.JSON(db[req.params.id]);
 });
 
 app.delete("/api/notes/:id", (req, res) => {
-    notes.splice(req.params.id, 1);
-    sendData;
-    console.log("Deleted note with id "+req.params.id);
+    const noteId = req.params.id
+    for (let i = 0; i < db.length; i++) {
+        if (noteId == db[i].id) {
+            // return res.json(db[id]); 
+            db.splice(i, 1)   
+        }
+
+    } 
+    // db.splice(req.params.id, 1);
+    sendData();
+    res.json("yeeted and deleted")
 });
 
 app.get('/', (req, res) => {
@@ -47,7 +56,7 @@ app.get('/notes', (req, res) => {
 });
 
 sendData = () => {
-    fs.writeFileSync("db/db.json", JSON.stringify(notes),err => {
+    fs.writeFileSync("db/db.json", JSON.stringify(db),err => {
         if (err) throw err;
         return true;
     });

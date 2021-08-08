@@ -18,14 +18,17 @@ CD to your install folder and open the project, run npm install for all dependen
 To use locally, type node server.js in the command line or npm start. Open http://localhost:3001 to view the application.
 Or visit the deployed application on Heroku.
 
-# Built With
+## Preview
+<img src="public\assets\img\2021-08-08 (4).png>"
+
+## Built With
 * NodeJs
 * JavaScript
 * Node Packages:
   * Express
 
-# Live URL
+## Live URL
 https://rocky-spire-22274.herokuapp.com/
 
-# Author
+## Author
 Kevin Myers

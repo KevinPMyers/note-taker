@@ -20,6 +20,7 @@ Or visit the deployed application on Heroku.
 
 ## Preview
 ![Landing Page](/public/assets/img/LandingPage.png)
+![Note Page](/public/assets/img/NotePage.png)
 
 ## Built With
 * NodeJs

@@ -19,7 +19,7 @@ To use locally, type node server.js in the command line or npm start. Open http:
 Or visit the deployed application on Heroku.
 
 ## Preview
-<img src="2021-08-08(2).png">
+![Landing Page](/public/assets/img/LandingPage.png)
 
 ## Built With
 * NodeJs
